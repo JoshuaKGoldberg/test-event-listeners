@@ -14,12 +14,12 @@ export const createRegister = <
         }
     };
 
-    const fireEvent = (eventName: TEventName): void => {
+    const fireEvent = (eventName: TEventName, ...args: any[]): void => {
         const events = eventListeners.get(eventName);
 
         if (events !== undefined) {
             for (const event of events) {
-                event();
+                event(...args);
             }
         }
     };
