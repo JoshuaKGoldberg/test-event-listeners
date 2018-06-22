@@ -1,0 +1,60 @@
+{
+  "name": "test-event-listeners",
+  "version": "0.1.0",
+  "description": "Test-friendly object creator to simulate adding listeners for events.",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "clean": "del-cli dist/* lib/*",
+    "compile": "tsc --project tsconfig.json",
+    "dist": "run-p dist:amd-es3 dist:amd-es2015 dist:system-es3 dist:system-es2015",
+    "dist:amd-es3": "tsc --module amd --outFile dist/test-event-listeners-amd-es3.js --project tsconfig.json --target es3",
+    "dist:amd-es2015": "tsc --module amd --outFile dist/test-event-listeners-amd-es2015.js --project tsconfig.json --target es2015",
+    "dist:system-es3": "tsc --module system --outFile dist/test-event-listeners-system-es3.js --project tsconfig.json --target es3",
+    "dist:system-es2015": "tsc --module system --outFile dist/test-event-listeners-system-es2015.js --project tsconfig.json --target es2015",
+    "lint": "tslint --config tslint.json --format stylish --project tsconfig.json",
+    "test": "jest",
+    "verify": "npm run clean && npm run compile && npm run lint && npm run test && npm run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuakgoldberg/test-event-listeners.git"
+  },
+  "keywords": [
+    "addEventListener",
+    "events",
+    "quick",
+    "test-event-listeners",
+    "yippee",
+    "hooray"
+  ],
+  "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshuakgoldberg/test-event-listeners/issues"
+  },
+  "homepage": "https://github.com/joshuakgoldberg/test-event-listeners#readme",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "del-cli": "^1.1.0",
+    "jest": "^23.1.0",
+    "npm-run-all": "^4.1.3",
+    "ts-jest": "^22.4.6",
+    "tslint": "5.10.0",
+    "tsutils": "^2.27.1",
+    "typescript": "^2.9.1"
+  }
+}
